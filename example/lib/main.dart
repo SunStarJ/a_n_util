@@ -63,7 +63,7 @@ class TPage extends StatelessWidget {
   Widget build(BuildContext context) => Center(
         child: FlatButton(
             onPressed: () {
-              ANavigationUtil.push2Page(context, pageName.testPage.toString(),
+              ANavigationUtil.push2Page(context, PageName.testPage.toString(),
                   anUtil: ANUtil().putExtra("name", "孙浩").putExtra("age", 28));
             },
             child: Text("测试一下")),

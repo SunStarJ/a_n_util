@@ -1,5 +1,8 @@
+import 'package:anutil_example/app_setting.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:anutil/anutil.dart';
+import 'package:flutter/material.dart';
+
 /**
  *
  * @ProjectName:    a_n_util
@@ -9,13 +12,14 @@ import 'package:anutil/anutil.dart';
  * @QQ:             243280864
  * @CreateDate:     2020/6/23 9:42
  */
-class TestPage extends StatefulWidget with ANUtilRegister{
-
+class TestPage extends StatefulWidget with ANUtilRegister {
   int age;
   String name;
-  TestPage(ANUtil anUtil){
+
+  TestPage(ANUtil anUtil) {
     initANUtil(anUtil);
   }
+
   @override
   State<StatefulWidget> createState() {
     age = getIntExtra("age");
@@ -23,9 +27,21 @@ class TestPage extends StatefulWidget with ANUtilRegister{
     print("$name的年龄是$age");
     return _State();
   }
-
 }
-class _State extends State<TestPage>{
+
+class _State extends State<TestPage> {
   @override
-  Widget build(BuildContext context) =>Container();
+  Widget build(BuildContext context) => Scaffold(
+        body: Center(
+          child: FlatButton(
+              onPressed: () {
+                ANavigationUtil.push2Page(
+                        context, PageName.testPage2.toString())
+                    .then((value) {
+                  print("page is : 1");
+                });
+              },
+              child: Text("1")),
+        ),
+      );
 }
